@@ -442,7 +442,7 @@ p {
 
 .button {
   font-family: "Manrope", sans-serif;
-  font-size: clamp(1rem, -0.1179rem + 1.7467vw, 1.5rem);
+  font-size: clamp(1rem, 0.6786rem + 0.6696vw, 1.75rem);
   line-height: 100%;
   font-weight: 700;
   color: #ffffff;
@@ -794,16 +794,19 @@ p {
     gap: 4px;
   }
 }
-.hero__image img {
+.hero__image img, .hero__image video {
   -o-object-fit: cover;
      object-fit: cover;
   height: 100%;
 }
 
-.modules__content,
+.modules__content, .modules .content,
 .advantages__content,
+.advantages .content,
 .standart-block__content,
-.contacts__content {
+.standart-block .content,
+.contacts__content,
+.contacts .content {
   padding: clamp(0.75rem, 0.4282rem + 1.373vw, 2.625rem);
   display: flex;
   flex-direction: column;
@@ -812,10 +815,13 @@ p {
   background: #E4E4E4;
 }
 @media (max-width: 1024px) {
-  .modules__content,
+  .modules__content, .modules .content,
   .advantages__content,
+  .advantages .content,
   .standart-block__content,
-  .contacts__content {
+  .standart-block .content,
+  .contacts__content,
+  .contacts .content {
     border-top: none;
   }
 }
@@ -827,10 +833,13 @@ p {
   flex-direction: column;
   gap: 24px;
 }
-.modules__image img,
+.modules__image img, .modules__image video,
 .advantages__image img,
+.advantages__image video,
 .standart-block__image img,
-.contacts__image img {
+.standart-block__image video,
+.contacts__image img,
+.contacts__image video {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -843,7 +852,7 @@ p {
   .advantages__image,
   .standart-block__image,
   .contacts__image {
-    max-height: clamp(15.75rem, 11.1275rem + 19.7227vw, 23.75rem);
+    max-height: clamp(12.5rem, 4.8864rem + 38.0682vw, 29.25rem);
   }
 }
 
@@ -918,7 +927,7 @@ p {
   }
 }
 
-.advantages__content {
+.advantages .content {
   justify-content: space-between;
   gap: 24px;
   position: relative;
@@ -947,26 +956,119 @@ p {
   -o-object-position: 50% 64%;
      object-position: 50% 64%;
 }
-.advantages__container:nth-child(2) .advantages__content:first-of-type {
+.advantages .content {
+  min-height: 462px;
+}
+@media (max-width: 1024px) {
+  .advantages .content {
+    min-height: 332px;
+  }
+}
+.advantages .container:nth-child(1) .content:first-of-type {
   background-color: #DEE4E9;
-  min-height: 462px;
+  /* Основной background с PNG fallback и градиентом */
+  background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), url(../img/advantages-bg-1.png) -20% 100% no-repeat, #E4E4E4;
+  /* Медиа-запрос для ретины (2x изображения) */
+  /* Современные форматы через @supports */
+  /* Для браузеров с поддержкой image-set и ретины */
 }
-@media (max-width: 1024px) {
-  .advantages__container:nth-child(2) .advantages__content:first-of-type {
-    min-height: 332px;
+@media (min-resolution: 192dpi) {
+  .advantages .container:nth-child(1) .content:first-of-type {
+    background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), url(../img/advantages-bg-1@2x.png) -20% 100% no-repeat, #E4E4E4;
   }
 }
-.advantages__container:nth-child(2) .advantages__content:last-of-type {
-  min-height: 462px;
-}
-@media (max-width: 1024px) {
-  .advantages__container:nth-child(2) .advantages__content:last-of-type {
-    min-height: 332px;
+@supports ((background: -webkit-image-set(url(test.png) 1x)) or (background: image-set(url(test.png) 1x))) {
+  .advantages .container:nth-child(1) .content:first-of-type {
+    background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), -webkit-image-set(url(../img/advantages-bg-1.avif) 1x, url(../img/advantages-bg-1@2x.avif) 2x, url(../img/advantages-bg-1.webp) 1x, url(../img/advantages-bg-1@2x.webp) 2x) -20% 100% no-repeat, #E4E4E4;
+    background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), image-set(url(../img/advantages-bg-1.avif) 1x, url(../img/advantages-bg-1@2x.avif) 2x, url(../img/advantages-bg-1.webp) 1x, url(../img/advantages-bg-1@2x.webp) 2x) -20% 100% no-repeat, #E4E4E4;
   }
 }
-.advantages__container:first-child .advantages__image img {
-  -o-object-position: 50% 4%;
-     object-position: 50% 4%;
+@supports ((background: -webkit-image-set(url(test.png) 1x)) or (background: image-set(url(test.png) 1x))) {
+  @media (min-resolution: 192dpi) {
+    .advantages .container:nth-child(1) .content:first-of-type {
+      background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), -webkit-image-set(url(../img/advantages-bg-1@2x.avif) 2x, url(../img/advantages-bg-1@2x.webp) 2x) -20% 100% no-repeat, #E4E4E4;
+      background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), image-set(url(../img/advantages-bg-1@2x.avif) 2x, url(../img/advantages-bg-1@2x.webp) 2x) -20% 100% no-repeat, #E4E4E4;
+    }
+  }
+}
+.advantages .container:nth-child(2) .content:last-of-type {
+  background-color: #DEE4E9;
+  /* Основной background с PNG fallback и градиентом */
+  background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), url(../img/advantages-bg-4.png) 100% 0% no-repeat, #E4E4E4;
+  /* Медиа-запрос для ретины (2x изображения) */
+  /* Современные форматы через @supports */
+  /* Для браузеров с поддержкой image-set и ретины */
+}
+@media (min-resolution: 192dpi) {
+  .advantages .container:nth-child(2) .content:last-of-type {
+    background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), url(../img/advantages-bg-4@2x.png) 100% 0% no-repeat, #E4E4E4;
+  }
+}
+@supports ((background: -webkit-image-set(url(test.png) 1x)) or (background: image-set(url(test.png) 1x))) {
+  .advantages .container:nth-child(2) .content:last-of-type {
+    background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), -webkit-image-set(url(../img/advantages-bg-4.avif) 1x, url(../img/advantages-bg-4@2x.avif) 2x, url(../img/advantages-bg-4.webp) 1x, url(../img/advantages-bg-4@2x.webp) 2x) 100% 0% no-repeat, #E4E4E4;
+    background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), image-set(url(../img/advantages-bg-4.avif) 1x, url(../img/advantages-bg-4@2x.avif) 2x, url(../img/advantages-bg-4.webp) 1x, url(../img/advantages-bg-4@2x.webp) 2x) 100% 0% no-repeat, #E4E4E4;
+  }
+}
+@supports ((background: -webkit-image-set(url(test.png) 1x)) or (background: image-set(url(test.png) 1x))) {
+  @media (min-resolution: 192dpi) {
+    .advantages .container:nth-child(2) .content:last-of-type {
+      background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), -webkit-image-set(url(../img/advantages-bg-4@2x.avif) 2x, url(../img/advantages-bg-4@2x.webp) 2x) 100% 0% no-repeat, #E4E4E4;
+      background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), image-set(url(../img/advantages-bg-4@2x.avif) 2x, url(../img/advantages-bg-4@2x.webp) 2x) 100% 0% no-repeat, #E4E4E4;
+    }
+  }
+}
+.advantages .container:nth-child(1) .content:last-of-type {
+  /* Основной background с PNG fallback и градиентом */
+  background: linear-gradient(180deg, rgba(228, 228, 228, 0.8) 25%, rgba(228, 228, 228, 0.24) 98.63%), url(../img/advantages-bg-2.png) clamp(-4.375rem, -22.5417rem + 28.9479vw, 24.375rem) clamp(-3.75rem, -3843.75rem + 6000vw, 0rem) no-repeat, #E4E4E4;
+  /* Медиа-запрос для ретины (2x изображения) */
+  /* Современные форматы через @supports */
+  /* Для браузеров с поддержкой image-set и ретины */
+}
+@media (min-resolution: 192dpi) {
+  .advantages .container:nth-child(1) .content:last-of-type {
+    background: linear-gradient(180deg, rgba(228, 228, 228, 0.8) 25%, rgba(228, 228, 228, 0.24) 98.63%), url(../img/advantages-bg-2@2x.png) clamp(-4.375rem, -22.5417rem + 28.9479vw, 24.375rem) clamp(-3.75rem, -3843.75rem + 6000vw, 0rem) no-repeat, #E4E4E4;
+  }
+}
+@supports ((background: -webkit-image-set(url(test.png) 1x)) or (background: image-set(url(test.png) 1x))) {
+  .advantages .container:nth-child(1) .content:last-of-type {
+    background: linear-gradient(180deg, rgba(228, 228, 228, 0.8) 25%, rgba(228, 228, 228, 0.24) 98.63%), -webkit-image-set(url(../img/advantages-bg-2.avif) 1x, url(../img/advantages-bg-2@2x.avif) 2x, url(../img/advantages-bg-2.webp) 1x, url(../img/advantages-bg-2@2x.webp) 2x) clamp(-4.375rem, -22.5417rem + 28.9479vw, 24.375rem) clamp(-3.75rem, -3843.75rem + 6000vw, 0rem) no-repeat, #E4E4E4;
+    background: linear-gradient(180deg, rgba(228, 228, 228, 0.8) 25%, rgba(228, 228, 228, 0.24) 98.63%), image-set(url(../img/advantages-bg-2.avif) 1x, url(../img/advantages-bg-2@2x.avif) 2x, url(../img/advantages-bg-2.webp) 1x, url(../img/advantages-bg-2@2x.webp) 2x) clamp(-4.375rem, -22.5417rem + 28.9479vw, 24.375rem) clamp(-3.75rem, -3843.75rem + 6000vw, 0rem) no-repeat, #E4E4E4;
+  }
+}
+@supports ((background: -webkit-image-set(url(test.png) 1x)) or (background: image-set(url(test.png) 1x))) {
+  @media (min-resolution: 192dpi) {
+    .advantages .container:nth-child(1) .content:last-of-type {
+      background: linear-gradient(180deg, rgba(228, 228, 228, 0.8) 25%, rgba(228, 228, 228, 0.24) 98.63%), -webkit-image-set(url(../img/advantages-bg-2@2x.avif) 2x, url(../img/advantages-bg-2@2x.webp) 2x) clamp(-4.375rem, -22.5417rem + 28.9479vw, 24.375rem) clamp(-3.75rem, -3843.75rem + 6000vw, 0rem) no-repeat, #E4E4E4;
+      background: linear-gradient(180deg, rgba(228, 228, 228, 0.8) 25%, rgba(228, 228, 228, 0.24) 98.63%), image-set(url(../img/advantages-bg-2@2x.avif) 2x, url(../img/advantages-bg-2@2x.webp) 2x) clamp(-4.375rem, -22.5417rem + 28.9479vw, 24.375rem) clamp(-3.75rem, -3843.75rem + 6000vw, 0rem) no-repeat, #E4E4E4;
+    }
+  }
+}
+.advantages .container:nth-child(2) .content:first-of-type {
+  /* Основной background с PNG fallback и градиентом */
+  background: linear-gradient(180deg, rgba(228, 228, 228, 0.8) 25%, rgba(228, 228, 228, 0.24) 98.63%), url(../img/advantages-bg-3.png) -89.77px clamp(-4.25rem, -1284.25rem + 2000vw, -1.75rem) no-repeat, #E4E4E4;
+  /* Медиа-запрос для ретины (2x изображения) */
+  /* Современные форматы через @supports */
+  /* Для браузеров с поддержкой image-set и ретины */
+}
+@media (min-resolution: 192dpi) {
+  .advantages .container:nth-child(2) .content:first-of-type {
+    background: linear-gradient(180deg, rgba(228, 228, 228, 0.8) 25%, rgba(228, 228, 228, 0.24) 98.63%), url(../img/advantages-bg-3@2x.png) -89.77px clamp(-4.25rem, -1284.25rem + 2000vw, -1.75rem) no-repeat, #E4E4E4;
+  }
+}
+@supports ((background: -webkit-image-set(url(test.png) 1x)) or (background: image-set(url(test.png) 1x))) {
+  .advantages .container:nth-child(2) .content:first-of-type {
+    background: linear-gradient(180deg, rgba(228, 228, 228, 0.8) 25%, rgba(228, 228, 228, 0.24) 98.63%), -webkit-image-set(url(../img/advantages-bg-3.avif) 1x, url(../img/advantages-bg-3@2x.avif) 2x, url(../img/advantages-bg-3.webp) 1x, url(../img/advantages-bg-3@2x.webp) 2x) -89.77px clamp(-4.25rem, -1284.25rem + 2000vw, -1.75rem) no-repeat, #E4E4E4;
+    background: linear-gradient(180deg, rgba(228, 228, 228, 0.8) 25%, rgba(228, 228, 228, 0.24) 98.63%), image-set(url(../img/advantages-bg-3.avif) 1x, url(../img/advantages-bg-3@2x.avif) 2x, url(../img/advantages-bg-3.webp) 1x, url(../img/advantages-bg-3@2x.webp) 2x) -89.77px clamp(-4.25rem, -1284.25rem + 2000vw, -1.75rem) no-repeat, #E4E4E4;
+  }
+}
+@supports ((background: -webkit-image-set(url(test.png) 1x)) or (background: image-set(url(test.png) 1x))) {
+  @media (min-resolution: 192dpi) {
+    .advantages .container:nth-child(2) .content:first-of-type {
+      background: linear-gradient(180deg, rgba(228, 228, 228, 0.8) 25%, rgba(228, 228, 228, 0.24) 98.63%), -webkit-image-set(url(../img/advantages-bg-3@2x.avif) 2x, url(../img/advantages-bg-3@2x.webp) 2x) -89.77px clamp(-4.25rem, -1284.25rem + 2000vw, -1.75rem) no-repeat, #E4E4E4;
+      background: linear-gradient(180deg, rgba(228, 228, 228, 0.8) 25%, rgba(228, 228, 228, 0.24) 98.63%), image-set(url(../img/advantages-bg-3@2x.avif) 2x, url(../img/advantages-bg-3@2x.webp) 2x) -89.77px clamp(-4.25rem, -1284.25rem + 2000vw, -1.75rem) no-repeat, #E4E4E4;
+    }
+  }
 }
 .advantages__bg {
   position: absolute;
@@ -982,13 +1084,23 @@ p {
      object-fit: cover;
 }
 
+.left .standart-block__content {
+  order: -1;
+}
+
+.right .standart-block__content {
+  order: 1;
+}
+
 .standart-block__buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
 }
-.standart-block__content {
-  order: 2;
+@media (max-width: 1024px) {
+  .standart-block__content {
+    order: 1 !important;
+  }
 }
 
 .contacts__content {
@@ -997,7 +1109,11 @@ p {
 .contacts__contact {
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;
+}
+@media (max-width: 412px) {
+  .contacts__contact {
+    flex-direction: column;
+  }
 }
 .contacts__contact a {
   text-decoration: none;
@@ -1216,7 +1332,7 @@ p {
     padding: 0;
   }
 }
-.news-card img {
+.news-card img, .news-card video {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1224,7 +1340,7 @@ p {
   height: clamp(15rem, 12.4256rem + 10.984vw, 30rem);
 }
 @media (max-width: 1024px) {
-  .news-card img {
+  .news-card img, .news-card video {
     height: clamp(15rem, 8.4996rem + 27.735vw, 26.25rem);
   }
 }
@@ -1260,7 +1376,7 @@ p {
 }
 .vertical-list-row span {
   font-family: "Manrope", sans-serif;
-  font-size: clamp(1rem, 0.85rem + 0.75vw, 1.75rem);
+  font-size: clamp(1rem, 0.6786rem + 0.6696vw, 1.75rem);
   line-height: 160%;
   font-weight: 500;
   color: #1A3652;

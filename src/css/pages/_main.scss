@@ -125,7 +125,7 @@ p {
 
 // Кнопка
 .button {
-  @include mixin.text-style(clamp(1rem, -0.1179rem + 1.7467vw, 1.5rem), 100%, 700, var.$color-accent-text);
+  @include mixin.text-style(clamp(1rem, 0.6786rem + 0.6696vw, 1.75rem), 100%, 700, var.$color-accent-text);
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -517,7 +517,7 @@ p {
   }
 
   &__image {
-    img {
+    img, video {
       object-fit: cover;
       height: 100%;
     }
@@ -528,7 +528,7 @@ p {
 .advantages,
 .standart-block,
 .contacts {
-  &__content {
+  &__content, .content{
     padding: clamp(0.75rem, 0.4282rem + 1.373vw, 2.625rem);
     display: flex;
     flex-direction: column;
@@ -548,7 +548,7 @@ p {
   }
 
   &__image {
-    img {
+    img, video {
       width: 100%;
       object-fit: cover;
       height: 100%;
@@ -556,7 +556,7 @@ p {
     }
 
     @media(max-width: var.$bp-lg) {
-      max-height: clamp(15.75rem, 11.1275rem + 19.7227vw, 23.75rem);
+      max-height: clamp(12.5rem, 4.8864rem + 38.0682vw, 29.25rem);
     }
   }
 }
@@ -645,11 +645,13 @@ p {
 
 .advantages {
 
-  &__content {
+  .content {
     justify-content: space-between;
     gap: 24px;
     position: relative;
 
+    
+    
   }
 
   &__element {
@@ -679,27 +681,306 @@ p {
     }
   }
 
-  &__container:nth-child(2) &__content:first-of-type {
+  .content {
+    min-height: 462px;
+
+    @media(max-width: var.$bp-lg) {
+      min-height: 332px;
+    }
+  }
+
+  .container:nth-child(1) .content:first-of-type {
     background-color: var.$color-accent-bg;
-    min-height: 462px;
+    /* Основной background с PNG fallback и градиентом */
+    background: 
+        linear-gradient(180deg, 
+            #D8DFE4 0%, 
+            rgba(216, 223, 228, 0.9) 32.03%, 
+            rgba(209, 222, 233, 0.5) 59.22%, 
+            rgba(182, 206, 229, 0.24) 98.56%
+        ), 
+        url(../img/advantages-bg-1.png) -20% 100% no-repeat, 
+        #E4E4E4;
 
-    @media(max-width: var.$bp-lg) {
-      min-height: 332px;
+    /* Медиа-запрос для ретины (2x изображения) */
+    @media (-webkit-min-device-pixel-ratio: 2), 
+          (min-resolution: 192dpi) {
+        background: 
+            linear-gradient(180deg, 
+                #D8DFE4 0%, 
+                rgba(216, 223, 228, 0.9) 32.03%, 
+                rgba(209, 222, 233, 0.5) 59.22%, 
+                rgba(182, 206, 229, 0.24) 98.56%
+            ), 
+            url(../img/advantages-bg-1@2x.png) -20% 100% no-repeat, 
+            #E4E4E4;
+    }
+
+    /* Современные форматы через @supports */
+    @supports (background: image-set(url(test.png) 1x)) {
+        background: 
+            linear-gradient(180deg, 
+                #D8DFE4 0%, 
+                rgba(216, 223, 228, 0.9) 32.03%, 
+                rgba(209, 222, 233, 0.5) 59.22%, 
+                rgba(182, 206, 229, 0.24) 98.56%
+            ), 
+            image-set(
+                url(../img/advantages-bg-1.avif) 1x,
+                url(../img/advantages-bg-1@2x.avif) 2x,
+                url(../img/advantages-bg-1.webp) 1x,
+                url(../img/advantages-bg-1@2x.webp) 2x
+            ) -20% 100% no-repeat, 
+            #E4E4E4;
+    }
+
+    /* Для браузеров с поддержкой image-set и ретины */
+    @supports (background: image-set(url(test.png) 1x)) {
+        @media (-webkit-min-device-pixel-ratio: 2), 
+              (min-resolution: 192dpi) {
+            background: 
+                linear-gradient(180deg, 
+                    #D8DFE4 0%, 
+                    rgba(216, 223, 228, 0.9) 32.03%, 
+                    rgba(209, 222, 233, 0.5) 59.22%, 
+                    rgba(182, 206, 229, 0.24) 98.56%
+                ), 
+                image-set(
+                    url(../img/advantages-bg-1@2x.avif) 2x,
+                    url(../img/advantages-bg-1@2x.webp) 2x
+                ) -20% 100% no-repeat, 
+                #E4E4E4;
+        }
     }
   }
 
-  &__container:nth-child(2) &__content:last-of-type {
-    min-height: 462px;
+  .container:nth-child(2) .content:last-of-type {
+    background-color: var.$color-accent-bg;
+    /* Основной background с PNG fallback и градиентом */
+    background: 
+        linear-gradient(180deg, 
+            #D8DFE4 0%, 
+            rgba(216, 223, 228, 0.9) 32.03%, 
+            rgba(209, 222, 233, 0.5) 59.22%, 
+            rgba(182, 206, 229, 0.24) 98.56%
+        ), 
+        url(../img/advantages-bg-4.png) 100% 0% no-repeat, 
+        #E4E4E4;
 
-    @media(max-width: var.$bp-lg) {
-      min-height: 332px;
+    /* Медиа-запрос для ретины (2x изображения) */
+    @media (-webkit-min-device-pixel-ratio: 2), 
+          (min-resolution: 192dpi) {
+        background: 
+            linear-gradient(180deg, 
+                #D8DFE4 0%, 
+                rgba(216, 223, 228, 0.9) 32.03%, 
+                rgba(209, 222, 233, 0.5) 59.22%, 
+                rgba(182, 206, 229, 0.24) 98.56%
+            ), 
+            url(../img/advantages-bg-4@2x.png) 100% 0% no-repeat, 
+            #E4E4E4;
+    }
+
+    /* Современные форматы через @supports */
+    @supports (background: image-set(url(test.png) 1x)) {
+        background: 
+            linear-gradient(180deg, 
+                #D8DFE4 0%, 
+                rgba(216, 223, 228, 0.9) 32.03%, 
+                rgba(209, 222, 233, 0.5) 59.22%, 
+                rgba(182, 206, 229, 0.24) 98.56%
+            ), 
+            image-set(
+                url(../img/advantages-bg-4.avif) 1x,
+                url(../img/advantages-bg-4@2x.avif) 2x,
+                url(../img/advantages-bg-4.webp) 1x,
+                url(../img/advantages-bg-4@2x.webp) 2x
+            ) 100% 0% no-repeat, 
+            #E4E4E4;
+    }
+
+    /* Для браузеров с поддержкой image-set и ретины */
+    @supports (background: image-set(url(test.png) 1x)) {
+        @media (-webkit-min-device-pixel-ratio: 2), 
+              (min-resolution: 192dpi) {
+            background: 
+                linear-gradient(180deg, 
+                    #D8DFE4 0%, 
+                    rgba(216, 223, 228, 0.9) 32.03%, 
+                    rgba(209, 222, 233, 0.5) 59.22%, 
+                    rgba(182, 206, 229, 0.24) 98.56%
+                ), 
+                image-set(
+                    url(../img/advantages-bg-4@2x.avif) 2x,
+                    url(../img/advantages-bg-4@2x.webp) 2x
+                ) 100% 0% no-repeat, 
+                #E4E4E4;
+        }
     }
   }
 
-  &__container:first-child {
-    .advantages__image img {
-      object-position: 50% 4%;
+  .container:nth-child(1) .content:last-of-type {
+    /* Основной background с PNG fallback и градиентом */
+    background: 
+        linear-gradient(180deg, 
+          rgba(228, 228, 228, 0.80) 25%,
+          rgba(228, 228, 228, 0.24) 98.63%
+        ), 
+        url(../img/advantages-bg-2.png) clamp(-4.375rem, -22.5417rem + 28.9479vw, 24.375rem) clamp(-3.75rem, -3843.75rem + 6000vw, 0rem) no-repeat, 
+        #E4E4E4;
+
+    /* Медиа-запрос для ретины (2x изображения) */
+    @media (-webkit-min-device-pixel-ratio: 2), 
+          (min-resolution: 192dpi) {
+        background: 
+            linear-gradient(180deg, 
+            rgba(228, 228, 228, 0.80) 25%,
+            rgba(228, 228, 228, 0.24) 98.63%
+            ), 
+            url(../img/advantages-bg-2@2x.png) clamp(-4.375rem, -22.5417rem + 28.9479vw, 24.375rem) clamp(-3.75rem, -3843.75rem + 6000vw, 0rem) no-repeat, 
+            #E4E4E4;
     }
+
+    /* Современные форматы через @supports */
+    @supports (background: image-set(url(test.png) 1x)) {
+        background: 
+            linear-gradient(180deg, 
+            rgba(228, 228, 228, 0.80) 25%,
+            rgba(228, 228, 228, 0.24) 98.63%
+            ), 
+            image-set(
+                url(../img/advantages-bg-2.avif) 1x,
+                url(../img/advantages-bg-2@2x.avif) 2x,
+                url(../img/advantages-bg-2.webp) 1x,
+                url(../img/advantages-bg-2@2x.webp) 2x
+            ) clamp(-4.375rem, -22.5417rem + 28.9479vw, 24.375rem) clamp(-3.75rem, -3843.75rem + 6000vw, 0rem) no-repeat, 
+            #E4E4E4;
+    }
+
+    /* Для браузеров с поддержкой image-set и ретины */
+    @supports (background: image-set(url(test.png) 1x)) {
+        @media (-webkit-min-device-pixel-ratio: 2), 
+              (min-resolution: 192dpi) {
+            background: 
+                linear-gradient(180deg, 
+                rgba(228, 228, 228, 0.80) 25%,
+                rgba(228, 228, 228, 0.24) 98.63%
+                ), 
+                image-set(
+                    url(../img/advantages-bg-2@2x.avif) 2x,
+                    url(../img/advantages-bg-2@2x.webp) 2x
+                ) clamp(-4.375rem, -22.5417rem + 28.9479vw, 24.375rem) clamp(-3.75rem, -3843.75rem + 6000vw, 0rem) no-repeat, 
+                #E4E4E4;
+        }
+    }
+
+
+
+    // /* Основной background с PNG fallback */
+    //   background: 
+    //   url(../img/advantages-bg-2.png) 366.977px -19.685px  no-repeat,
+    //   #E4E4E4;
+
+    //   /* Медиа-запрос для ретины */
+    //   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    //       background: 
+    //           url(../img/advantages-bg-2@2x.png) clamp(-4.375rem, -22.5417rem + 28.9479vw, 24.375rem) clamp(-5rem, -6.25rem + 0.9531vw, -3.125rem) no-repeat,
+    //           #E4E4E4;
+    //   }
+
+    //   /* Современные форматы через @supports */
+    //   @supports (background: image-set(url(test.png) 1x)) {
+    //       background: 
+    //           image-set(
+    //               url(../img/advantages-bg-2.avif) 1x,
+    //               url(../img/advantages-bg-2@2x.avif) 2x,
+    //               url(../img/advantages-bg-2.webp) 1x,
+    //               url(../img/advantages-bg-2@2x.webp) 2x
+    //           ) clamp(-4.375rem, -22.5417rem + 28.9479vw, 24.375rem) clamp(-5rem, -6.25rem + 0.9531vw, -3.125rem) no-repeat,
+    //           #E4E4E4;
+    // }
+  }
+
+  .container:nth-child(2) .content:first-of-type {
+    /* Основной background с PNG fallback и градиентом */
+    background: 
+        linear-gradient(180deg, 
+          rgba(228, 228, 228, 0.80) 25%,
+          rgba(228, 228, 228, 0.24) 98.63%
+        ), 
+        url(../img/advantages-bg-3.png) -89.77px clamp(-4.25rem, -1284.25rem + 2000vw, -1.75rem) no-repeat, 
+        #E4E4E4;
+
+    /* Медиа-запрос для ретины (2x изображения) */
+    @media (-webkit-min-device-pixel-ratio: 2), 
+          (min-resolution: 192dpi) {
+        background: 
+            linear-gradient(180deg, 
+            rgba(228, 228, 228, 0.80) 25%,
+            rgba(228, 228, 228, 0.24) 98.63%
+            ), 
+            url(../img/advantages-bg-3@2x.png) -89.77px clamp(-4.25rem, -1284.25rem + 2000vw, -1.75rem) no-repeat, 
+            #E4E4E4;
+    }
+
+    /* Современные форматы через @supports */
+    @supports (background: image-set(url(test.png) 1x)) {
+        background: 
+            linear-gradient(180deg, 
+            rgba(228, 228, 228, 0.80) 25%,
+            rgba(228, 228, 228, 0.24) 98.63%
+            ), 
+            image-set(
+                url(../img/advantages-bg-3.avif) 1x,
+                url(../img/advantages-bg-3@2x.avif) 2x,
+                url(../img/advantages-bg-3.webp) 1x,
+                url(../img/advantages-bg-3@2x.webp) 2x
+            ) -89.77px clamp(-4.25rem, -1284.25rem + 2000vw, -1.75rem) no-repeat, 
+            #E4E4E4;
+    }
+
+    /* Для браузеров с поддержкой image-set и ретины */
+    @supports (background: image-set(url(test.png) 1x)) {
+        @media (-webkit-min-device-pixel-ratio: 2), 
+              (min-resolution: 192dpi) {
+            background: 
+                linear-gradient(180deg, 
+                rgba(228, 228, 228, 0.80) 25%,
+                rgba(228, 228, 228, 0.24) 98.63%
+                ), 
+                image-set(
+                    url(../img/advantages-bg-3@2x.avif) 2x,
+                    url(../img/advantages-bg-3@2x.webp) 2x
+                ) -89.77px clamp(-4.25rem, -1284.25rem + 2000vw, -1.75rem) no-repeat, 
+                #E4E4E4;
+        }
+    }
+
+
+    // /* Основной background с PNG fallback */
+    //   background: 
+    //   url(../img/advantages-bg-3.png) -89.77px -10.296px no-repeat,
+    //   #E4E4E4;
+
+    //   /* Медиа-запрос для ретины */
+    //   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    //       background: 
+    //           url(../img/advantages-bg-3@2x.png) -89.77px -10.296px no-repeat,
+    //           #E4E4E4;
+    //       background-size: 66.621% 174.738%;
+    //   }
+
+    //   /* Современные форматы через @supports */
+    //   @supports (background: image-set(url(test.png) 1x)) {
+    //       background: 
+    //           image-set(
+    //               url(../img/advantages-bg-3.avif) 1x,
+    //               url(../img/advantages-bg-3@2x.avif) 2x,
+    //               url(../img/advantages-bg-3.webp) 1x,
+    //               url(../img/advantages-bg-3@2x.webp) 2x
+    //           ) -89.77px -10.296px no-repeat,
+    //           #E4E4E4;
+    // }
   }
 
   &__bg {
@@ -717,6 +998,18 @@ p {
   }
 }
 
+.left {
+  .standart-block__content {
+    order: -1;
+  }
+}
+
+.right {
+  .standart-block__content {
+    order: 1;
+  }
+}
+
 .standart-block {
   &__buttons {
     display: flex;
@@ -725,7 +1018,9 @@ p {
   }
 
   &__content {
-    order: 2;
+    @media (max-width: var.$bp-lg) {
+      order: 1!important;
+    }
   }
 }
 
@@ -738,7 +1033,10 @@ p {
   &__contact {
     display: flex;
     gap: 12px;
-    flex-wrap: wrap;
+    
+    @media(max-width: 412px) {
+      flex-direction: column;
+    }
 
     a {
       text-decoration: none;
@@ -1005,7 +1303,7 @@ p {
     }
   }
 
-  img {
+  img, video {
     width: 100%;
     object-fit: cover;
     height: 100%;
@@ -1054,7 +1352,7 @@ p {
     }
 
     span {
-      @include mixin.text-style(clamp(1rem, 0.85rem + 0.75vw, 1.75rem), 160%, 500, var.$color-text);
+      @include mixin.text-style(clamp(1rem, 0.6786rem + 0.6696vw, 1.75rem), 160%, 500, var.$color-text);
     }
 
     svg {
@@ -1068,4 +1366,8 @@ p {
       // }
     }
   }
+}
+
+.price {
+
 }

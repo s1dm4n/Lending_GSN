@@ -67,9 +67,9 @@ function updateTexts() {
     const span = el.querySelector('span');
     if (!span) return;
 
-    span.textContent = window.innerWidth <= 375
+    span.textContent = window.innerWidth <= 345
       ? el.dataset.mobile || 'Узнать больше'
-      : el.dataset.desktop || 'Заказать презентацию';
+      : el.dataset.desktop || 'Рассчитать стоимость';
   });
 }
 

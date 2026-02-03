@@ -32,7 +32,7 @@
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: var.$bp-lg) {
     :root {
         --gutter-h: 2rem;
         --block-spacing: 3.5rem;
@@ -41,7 +41,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: var.$bp-md) {
     :root {
         --block-spacing: 2rem;
         --gutter-h: 1rem;
@@ -83,7 +83,7 @@
     grid-area: 1/5/1/9;
 }
 
-@media (max-width: 768px) {
+@media (max-width: var.$bp-md) {
     .line:nth-of-type(3) {
         display: none;
     }
@@ -93,7 +93,7 @@
     grid-area: 1/9/1/13;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: var.$bp-lg) {
     .line:nth-of-type(2) {
         display: none;
     }
@@ -103,7 +103,7 @@
     grid-area: 1/13/1/17;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: var.$bp-lg) {
     .line:nth-of-type(4) {
         display: none;
     }
@@ -119,13 +119,13 @@
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: var.$bp-lg) {
     .grid {
         grid-template-columns: repeat(8, 1fr);
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: var.$bp-md) {
     .grid {
         grid-template-columns: repeat(8, 1fr);
     }
@@ -145,11 +145,11 @@
     $gutter-h: 4rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: var.$bp-lg) {
     $gutter-h: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: var.$bp-md) {
     $gutter-h: 1rem;
 }
 
