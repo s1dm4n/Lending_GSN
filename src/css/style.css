@@ -282,7 +282,7 @@ th {
 }
 
 .line {
-  border-left: 1px solid #BEC2C6;
+  border-left: 1px solid rgba(190, 194, 198, 0.5019607843);
   grid-area: 1/1/1/1;
 }
 
@@ -533,7 +533,7 @@ p {
   width: 100%;
   z-index: 40;
   max-width: 100vw;
-  border-bottom: 1px solid #BEC2C6;
+  border-bottom: 1px solid rgba(190, 194, 198, 0.5019607843);
   background: rgba(221, 221, 221, 0.8);
   -webkit-backdrop-filter: blur(50px);
           backdrop-filter: blur(50px);
@@ -699,7 +699,7 @@ p {
   padding: 0;
 }
 .mobile-menu__list-item {
-  border-bottom: 1px solid #BEC2C6;
+  border-bottom: 1px solid rgba(190, 194, 198, 0.5019607843);
   transition: background-color 0.3s ease;
 }
 .mobile-menu__list-item:last-child {
@@ -811,7 +811,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 56px;
-  border: 1px solid #BEC2C6;
+  border: 1px solid rgba(190, 194, 198, 0.5019607843);
   background: #E4E4E4;
 }
 @media (max-width: 1024px) {
@@ -832,6 +832,12 @@ p {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+.modules__image,
+.advantages__image,
+.standart-block__image,
+.contacts__image {
+  border: 1px solid rgba(190, 194, 198, 0.5019607843);
 }
 .modules__image img, .modules__image video,
 .advantages__image img,
@@ -866,7 +872,7 @@ p {
   padding: 4px 12px;
   display: inline-block;
   line-height: normal;
-  border: 1px solid #BEC2C6;
+  border: 1px solid rgba(190, 194, 198, 0.5019607843);
   background-color: #ddd;
 }
 
@@ -883,7 +889,7 @@ p {
   --line-color: ;
   --line-width: 1px;
   --line-spacing: 20px;
-  border: 1px solid #BEC2C6;
+  border: 1px solid rgba(190, 194, 198, 0.5019607843);
   border-left: none;
   display: flex;
   justify-content: center;
@@ -920,7 +926,7 @@ p {
     grid-column: 1/-1;
   }
   .modules__image {
-    border-left: 1px solid #BEC2C6;
+    border-left: 1px solid rgba(190, 194, 198, 0.5019607843);
   }
   .modules__content {
     order: 2;
@@ -972,6 +978,12 @@ p {
   /* Современные форматы через @supports */
   /* Для браузеров с поддержкой image-set и ретины */
 }
+@media (min-width: 1024px) {
+  .advantages .container:nth-child(1) .content:first-of-type {
+    border-right: none !important;
+    border-bottom: none !important;
+  }
+}
 @media (min-resolution: 192dpi) {
   .advantages .container:nth-child(1) .content:first-of-type {
     background: linear-gradient(180deg, #D8DFE4 0%, rgba(216, 223, 228, 0.9) 32.03%, rgba(209, 222, 233, 0.5) 59.22%, rgba(182, 206, 229, 0.24) 98.56%), url(../img/advantages-bg-1@2x.png) -20% 100% no-repeat, #E4E4E4;
@@ -998,6 +1010,12 @@ p {
   /* Медиа-запрос для ретины (2x изображения) */
   /* Современные форматы через @supports */
   /* Для браузеров с поддержкой image-set и ретины */
+}
+@media (min-width: 1024px) {
+  .advantages .container:nth-child(2) .content:last-of-type {
+    border-left: none !important;
+    border-top: none !important;
+  }
 }
 @media (min-resolution: 192dpi) {
   .advantages .container:nth-child(2) .content:last-of-type {
@@ -1087,9 +1105,19 @@ p {
 .left .standart-block__content {
   order: -1;
 }
+@media (min-width: 1024px) {
+  .left .standart-block__content {
+    border-right: none !important;
+  }
+}
 
 .right .standart-block__content {
   order: 1;
+}
+@media (min-width: 1024px) {
+  .right .standart-block__content {
+    border-left: none !important;
+  }
 }
 
 .standart-block__buttons {
@@ -1104,7 +1132,7 @@ p {
 }
 
 .contacts__content {
-  border: 1px solid #BEC2C6;
+  border: 1px solid rgba(190, 194, 198, 0.5019607843);
 }
 .contacts__contact {
   display: flex;
@@ -1259,7 +1287,7 @@ p {
   width: 100%;
 }
 .swiper-slide .card {
-  border: 1px solid #BEC2C6;
+  border: 1px solid rgba(190, 194, 198, 0.5019607843);
   background-color: #ddd;
 }
 .swiper-slide .news-card {

@@ -548,6 +548,8 @@ p {
   }
 
   &__image {
+    border: 1px solid var.$color-line;
+
     img, video {
       width: 100%;
       object-fit: cover;
@@ -690,6 +692,10 @@ p {
   }
 
   .container:nth-child(1) .content:first-of-type {
+    @media (min-width: var.$bp-lg) {
+      border-right: none !important;
+      border-bottom: none !important;
+    }
     background-color: var.$color-accent-bg;
     /* Основной background с PNG fallback и градиентом */
     background: 
@@ -755,6 +761,10 @@ p {
   }
 
   .container:nth-child(2) .content:last-of-type {
+    @media (min-width: var.$bp-lg) {
+      border-left: none !important;
+      border-top: none !important;
+    }
     background-color: var.$color-accent-bg;
     /* Основной background с PNG fallback и градиентом */
     background: 
@@ -1001,12 +1011,18 @@ p {
 .left {
   .standart-block__content {
     order: -1;
+    @media (min-width: var.$bp-lg) {
+      border-right: none !important;
+    }
   }
 }
 
 .right {
   .standart-block__content {
     order: 1;
+    @media (min-width: var.$bp-lg) {
+      border-left: none !important;
+    }
   }
 }
 
