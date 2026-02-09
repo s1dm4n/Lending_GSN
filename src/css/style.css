@@ -879,8 +879,14 @@ p {
      object-fit: cover;
   height: 100%;
   width: 100%;
-  -o-object-position: 50% 62%;
-     object-position: 50% 62%;
+  -o-object-position: 50% 48%;
+     object-position: 50% 48%;
+}
+@media (max-width: 1024px) {
+  .hero__image img, .hero__image video {
+    -o-object-position: 50% 62%;
+       object-position: 50% 62%;
+  }
 }
 
 .modules__content, .modules .content,
