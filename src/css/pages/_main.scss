@@ -462,58 +462,6 @@ p {
   background-color: #153453;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzOC40NCAzOC40NCI+PHJlY3Qgd2lkdGg9IjQiIGhlaWdodD0iNCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNiIvPjwvc3ZnPg==");
   background-size: 38.44px 38.44px;
-
-   // background-image: 
-  //   url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzOC40NCAzOC40NCI+PHJlY3Qgd2lkdGg9IjQiIGhlaWdodD0iNCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNiIvPjwvc3ZnPg=="),
-  //   var(--bg-03),
-  //   var(--bg-02),
-  //   var(--bg-01);
-  
-  // background-size: 
-  //   38.44px 38.44px,
-  //   cover,
-  //   cover,
-  //   cover;
-  
-  // background-repeat: 
-  //   repeat,
-  //   no-repeat,
-  //   no-repeat,
-  //   no-repeat;
-  
-  // background-position: 
-  //   center,
-  //   center,
-  //   center,
-  //   center;
-
-  // /* Создаем CSS-переменные для удобства */
-  // --bg-01: image-set(
-  //   url("../img/build-01.avif") type("image/avif") 1x,
-  //   url("../img/build-01@2x.avif") type("image/avif") 2x,
-  //   url("../img/build-01.webp") type("image/webp") 1x,
-  //   url("../img/build-01@2x.webp") type("image/webp") 2x,
-  //   url("../img/build-01.jpg") type("image/jpeg") 1x,
-  //   url("../img/build-01@2x.jpg") type("image/jpeg") 2x
-  // );
-  
-  // --bg-02: image-set(
-  //   url("../img/build-02.avif") type("image/avif") 1x,
-  //   url("../img/build-02@2x.avif") type("image/avif") 2x,
-  //   url("../img/build-02.webp") type("image/webp") 1x,
-  //   url("../img/build-02@2x.webp") type("image/webp") 2x,
-  //   url("../img/build-02.jpg") type("image/jpeg") 1x,
-  //   url("../img/build-02@2x.jpg") type("image/jpeg") 2x
-  // );
-  
-  // --bg-03: image-set(
-  //   url("../img/build-03.avif") type("image/avif") 1x,
-  //   url("../img/build-03@2x.avif") type("image/avif") 2x,
-  //   url("../img/build-03.webp") type("image/webp") 1x,
-  //   url("../img/build-03@2x.webp") type("image/webp") 2x,
-  //   url("../img/build-03.jpg") type("image/jpeg") 1x,
-  //   url("../img/build-03@2x.jpg") type("image/jpeg") 2x
-  // );
   scroll-margin-top: 128px;
   transform: translateY(0) !important;
   position: relative;
@@ -587,11 +535,11 @@ p {
           
           
           @media (max-width: 1840px) {
-            grid-column: 1 / 11;
+            grid-column: 1 / 10;
           }
 
           @media (max-width: 1312px) {
-            grid-column: 1 / 12;
+            grid-column: 1 / 11;
           }
         }
       }
@@ -607,34 +555,28 @@ p {
   }
 
   &__image {
-    position: absolute;
-    bottom: 0;
-    width: clamp(25rem, 8.3333rem + 26.0417vw, 50rem);
-    right: calc(var(--gutter-h) + 48px);
 
-    picture:last-of-type {
-      display: none;
+    picture {
+      &:first-of-type{
+        position: absolute;
+        bottom: 0;
+        width: clamp(25rem, 8.3333rem + 26.0417vw, 50rem);
+        transform: translate(100px);
+        left: 50%;
+      }
+
+      &:last-of-type {
+        display: none;
+      }
     }
-
-    
-    @media (max-width: 1840px) {
-      right: calc(var(--gutter-h) - 6.125rem);
-    }
-
-    @media (max-width: 1600px) {
-      right: var(--gutter-h);
-    }
-
-    @media (max-width: 1312px) {
-      right: calc(var(--gutter-h) - 6.125rem);
-    }
-
     @media (max-width: var.$bp-lg) {
       position: static;
       width: 100%;
       height: auto;
       order: -1;
       max-height: clamp(26.375rem, 20.6932rem + 28.4091vw, 38.875rem);
+      left: unset;
+      transform: unset;
 
       picture {
         &:first-of-type {
@@ -644,7 +586,7 @@ p {
         &:last-of-type {
           display: inline;
         }
-      } 
+     } 
     }
 
     img, video {
@@ -655,6 +597,61 @@ p {
       @media (max-width: 1024px) {
         object-position: 50% 62%;
       }
+    }
+
+    &::before, &::after {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      height: 100%;
+      z-index: -5;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    &::before {
+      transform: translateX(-1530px);
+      width: clamp(82.9375rem, 79.6006rem + 4.3196vw, 93.75rem);
+      height: 100%;
+      content: ''; /* Обязательно! */
+      /* Фолбек для старых браузеров */
+      background-image: linear-gradient(180deg, rgba(21, 52, 83, 0.4) 1.69%, rgba(21, 52, 83, 0.7) 46.9%, rgba(21, 52, 83, 0.6) 100.7%), url('../img/build-01.png');
+      
+      /* Современный подход с @2x */
+      background-image:
+      linear-gradient(180deg, rgba(21, 52, 83, 0.4) 1.69%, rgba(21, 52, 83, 0.7) 46.9%, rgba(21, 52, 83, 0.6) 100.7%), 
+      image-set(
+        url('../img/build-01.avif') type('image/avif') 1x,
+        url('../img/build-01@2x.avif') type('image/avif') 2x,
+        url('../img/build-01.webp') type('image/webp') 1x,
+        url('../img/build-01@2x.webp') type('image/webp') 2x,
+        url('../img/build-01.png') type('image/png') 1x,
+        url('../img/build-01@2x.png') type('image/png') 2x
+      );
+      background-position: 0 72%;
+    }
+
+    &::after {
+      transform: translateX(110px);
+      width: clamp(73.6875rem, 68.4447rem + 26.2142vw, 154.3125rem);
+      content: '';
+      /* Фолбек для старых браузеров */
+      background-image:
+      linear-gradient(180deg, rgba(21, 52, 83, 0.4) 1.69%, rgba(21, 52, 83, 0.7) 46.9%, rgba(21, 52, 83, 0.6) 100.7%), 
+      url('../img/build-02.png');
+      
+      /* Современный подход с @2x */
+      background-image: 
+      linear-gradient(180deg, rgba(21, 52, 83, 0.4) 1.69%, rgba(21, 52, 83, 0.7) 46.9%, rgba(21, 52, 83, 0.6) 100.7%),
+      image-set(
+        url('../img/build-02.avif') type('image/avif') 1x,
+        url('../img/build-02@2x.avif') type('image/avif') 2x,
+        url('../img/build-02.webp') type('image/webp') 1x,
+        url('../img/build-02@2x.webp') type('image/webp') 2x,
+        url('../img/build-02.png') type('image/png') 1x,
+        url('../img/build-02@2x.png') type('image/png') 2x
+      );
+      background-position: 0 62%;
     }
   }
 }

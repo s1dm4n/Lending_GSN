@@ -819,12 +819,12 @@ p {
 }
 @media (max-width: 1840px) {
   .hero__content__title:last-of-type span {
-    grid-column: 1/11;
+    grid-column: 1/10;
   }
 }
 @media (max-width: 1312px) {
   .hero__content__title:last-of-type span {
-    grid-column: 1/12;
+    grid-column: 1/11;
   }
 }
 .hero__badges {
@@ -835,29 +835,15 @@ p {
     gap: 24px;
   }
 }
-.hero__image {
+.hero__image picture:first-of-type {
   position: absolute;
   bottom: 0;
   width: clamp(25rem, 8.3333rem + 26.0417vw, 50rem);
-  right: calc(var(--gutter-h) + 48px);
+  transform: translate(100px);
+  left: 50%;
 }
 .hero__image picture:last-of-type {
   display: none;
-}
-@media (max-width: 1840px) {
-  .hero__image {
-    right: calc(var(--gutter-h) - 6.125rem);
-  }
-}
-@media (max-width: 1600px) {
-  .hero__image {
-    right: var(--gutter-h);
-  }
-}
-@media (max-width: 1312px) {
-  .hero__image {
-    right: calc(var(--gutter-h) - 6.125rem);
-  }
 }
 @media (max-width: 1236px) {
   .hero__image {
@@ -866,6 +852,8 @@ p {
     height: auto;
     order: -1;
     max-height: clamp(26.375rem, 20.6932rem + 28.4091vw, 38.875rem);
+    left: unset;
+    transform: unset;
   }
   .hero__image picture:first-of-type {
     display: none;
@@ -887,6 +875,38 @@ p {
     -o-object-position: 50% 62%;
        object-position: 50% 62%;
   }
+}
+.hero__image::before, .hero__image::after {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 100%;
+  z-index: -5;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hero__image::before {
+  transform: translateX(-1530px);
+  width: clamp(82.9375rem, 79.6006rem + 4.3196vw, 93.75rem);
+  height: 100%;
+  content: ""; /* Обязательно! */
+  /* Фолбек для старых браузеров */
+  background-image: linear-gradient(180deg, rgba(21, 52, 83, 0.4) 1.69%, rgba(21, 52, 83, 0.7) 46.9%, rgba(21, 52, 83, 0.6) 100.7%), url("../img/build-01.png");
+  /* Современный подход с @2x */
+  background-image: linear-gradient(180deg, rgba(21, 52, 83, 0.4) 1.69%, rgba(21, 52, 83, 0.7) 46.9%, rgba(21, 52, 83, 0.6) 100.7%), -webkit-image-set(url("../img/build-01.avif") type("image/avif") 1x, url("../img/build-01@2x.avif") type("image/avif") 2x, url("../img/build-01.webp") type("image/webp") 1x, url("../img/build-01@2x.webp") type("image/webp") 2x, url("../img/build-01.png") type("image/png") 1x, url("../img/build-01@2x.png") type("image/png") 2x);
+  background-image: linear-gradient(180deg, rgba(21, 52, 83, 0.4) 1.69%, rgba(21, 52, 83, 0.7) 46.9%, rgba(21, 52, 83, 0.6) 100.7%), image-set(url("../img/build-01.avif") type("image/avif") 1x, url("../img/build-01@2x.avif") type("image/avif") 2x, url("../img/build-01.webp") type("image/webp") 1x, url("../img/build-01@2x.webp") type("image/webp") 2x, url("../img/build-01.png") type("image/png") 1x, url("../img/build-01@2x.png") type("image/png") 2x);
+  background-position: 0 72%;
+}
+.hero__image::after {
+  transform: translateX(110px);
+  width: clamp(73.6875rem, 68.4447rem + 26.2142vw, 154.3125rem);
+  content: "";
+  /* Фолбек для старых браузеров */
+  background-image: linear-gradient(180deg, rgba(21, 52, 83, 0.4) 1.69%, rgba(21, 52, 83, 0.7) 46.9%, rgba(21, 52, 83, 0.6) 100.7%), url("../img/build-02.png");
+  /* Современный подход с @2x */
+  background-image: linear-gradient(180deg, rgba(21, 52, 83, 0.4) 1.69%, rgba(21, 52, 83, 0.7) 46.9%, rgba(21, 52, 83, 0.6) 100.7%), -webkit-image-set(url("../img/build-02.avif") type("image/avif") 1x, url("../img/build-02@2x.avif") type("image/avif") 2x, url("../img/build-02.webp") type("image/webp") 1x, url("../img/build-02@2x.webp") type("image/webp") 2x, url("../img/build-02.png") type("image/png") 1x, url("../img/build-02@2x.png") type("image/png") 2x);
+  background-image: linear-gradient(180deg, rgba(21, 52, 83, 0.4) 1.69%, rgba(21, 52, 83, 0.7) 46.9%, rgba(21, 52, 83, 0.6) 100.7%), image-set(url("../img/build-02.avif") type("image/avif") 1x, url("../img/build-02@2x.avif") type("image/avif") 2x, url("../img/build-02.webp") type("image/webp") 1x, url("../img/build-02@2x.webp") type("image/webp") 2x, url("../img/build-02.png") type("image/png") 1x, url("../img/build-02@2x.png") type("image/png") 2x);
+  background-position: 0 62%;
 }
 
 .modules__content, .modules .content,

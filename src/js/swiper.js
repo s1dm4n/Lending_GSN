@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const swiperCustom = new Swiper('.swiper-main', {
     createElements: true,
-    slidesPerView: 1,
+    slidesPerView: 'auto',
     spaceBetween: 100,
     speed: 1000, 
     centeredSlides: true,
